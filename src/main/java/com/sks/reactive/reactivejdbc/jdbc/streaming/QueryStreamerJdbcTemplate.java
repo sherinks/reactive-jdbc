@@ -45,7 +45,7 @@ public class QueryStreamerJdbcTemplate extends JdbcTemplate {
 
                     ResultSet resultSet = connectionSubscription.getResultSet();
                     int rowNumber = 0;
-                    while (resultSet.next() && !subscriber.isDisposed()) {
+                    while ( !subscriber.isDisposed()&&resultSet.next() ) {
 
                         T row = rowMapper.mapRow(resultSet, rowNumber);
                         subscriber.onNext(row);
