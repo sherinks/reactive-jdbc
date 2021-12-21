@@ -42,7 +42,7 @@ jobs:
         name: sks
     # Steps represent a sequence of tasks that will be executed as part of the job
     needs: build
-    if: github.workflow == 'pull_request'
+    if: github.event_name == 'pull_request'
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
