@@ -51,6 +51,6 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, $name! Welcome to container build
       - name: test the Expression
-        run: echo ${{contains(github.ref_name,'sherinks-patch*'}} and ${{github.event_name == 'pull_request' || contains(github.ref_name,'sherinks-patch*')}}
+        run: echo ${{contains(github.ref_name,sherinks-patch*}} and ${{github.event_name == pull_request || contains(github.ref_name, sherinks-patch*)}}
 
       
