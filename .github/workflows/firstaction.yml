@@ -42,7 +42,7 @@ jobs:
         name: sks
     # Steps represent a sequence of tasks that will be executed as part of the job
     needs: build
-    if: ${{github.event_name == 'pull_request' || contains(github.ref_name,'sherinks-patch*')}}
+    #if: ${{github.event_name == 'pull_request' || contains(github.ref_name,'sherinks-patch*')}}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -50,5 +50,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, $name! Welcome to container build
+      - name: test the Expression
+        run: echo ${{contains(github.ref_name,'sherinks-patch*'}} and ${{github.event_name == 'pull_request' || contains(github.ref_name,'sherinks-patch*')}}
 
       
